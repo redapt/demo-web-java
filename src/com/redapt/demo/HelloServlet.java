@@ -1,0 +1,36 @@
+package com.redapt.demo;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class HelloServlet
+ */
+@WebServlet("/helloServlet")
+public class HelloServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public HelloServlet() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String yourName = request.getParameter("yourName");
+		PrintWriter writer = response.getWriter();
+		writer.println("<html><h1>Hello " + yourName + "</h1></html>");
+		writer.close();
+	}
+
+}
